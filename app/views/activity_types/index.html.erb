@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Activity Types</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activity_types.each do |activity_type| %>
+      <tr>
+        <td><button class="btn btn-primary" type="button"><%= activity_type.name %></button></td>
+        <td><button class="btn" type="button" style="activity_type.color.color_style"><%= activity_type.color %></button></td>
+        <td><%= link_to 'Show', activity_type %></td>
+        <td><%= link_to 'Edit', edit_activity_type_path(activity_type) %></td>
+        <td><%= link_to 'Destroy', activity_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity type', new_activity_type_path %>
+
+<%= link_to 'Activities', activities_path%>
+<%= link_to 'Activity types', activity_types_path%>

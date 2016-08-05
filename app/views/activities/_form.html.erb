@@ -1,0 +1,43 @@
+<%= bootstrap_form_for(@activity) do |f| %>
+  <% if @activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% @activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <form class="form-signin">
+    <%# activity_types_for_select.each do |name, id| %>
+      <!-- <span class="tag tag-pill tag-primary", style="display: inline-block"><%#= f.radio_button(:activity_type_id, id, label: name) %></span> -->
+    <%# end %>
+    <%#= f.select(:activity_type_id, options_for_select(activity_types_for_select), {}, :style => "width:auto") %>
+ 
+
+    <% activity_types_for_select.each do |name, id| %>
+      <div class="field form-group">
+        <div class="btn-group" data-toggle="buttons">
+          <%= f.label name, class: "btn btn-primary" do %>
+            <%= f.radio_button :activity_type_id, id, label: name %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+
+
+
+    <%= f.number_field(:amount, :style => "width:auto") %>
+    <%= f.submit(:text =>'Create activity', :class => "btn btn-lg btn-primary btn-block", :style => "width:auto" ) %>
+  </form>  
+<% end %>
+
+

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity_type.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @activity_type.color %>
+</p>
+
+<%= link_to 'Edit', edit_activity_type_path(@activity_type) %> |
+<%= link_to 'Back', activity_types_path %>
+
+<%= link_to 'Activities', activities_path%>
+<%= link_to 'Activity types', activity_types_path%>
